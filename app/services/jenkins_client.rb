@@ -26,7 +26,7 @@ class JenkinsClient
     test[:errors] = []
 
     begin
-      test[:jobs_count] = connection.job.list_all.size
+      test[:jobs_count] = get_available_jobs.size
     rescue => e
       test[:jobs_count] = 0
       test[:errors] << e.message
@@ -50,6 +50,30 @@ class JenkinsClient
 
   def number_of_builds_for(job_name)
     connection.job.list_details(job_name)['builds'].size rescue 0
+  end
+
+  def get_available_jobs
+    filter_job_names(search_in_depth).sort
+  end
+
+
+  def filter_job_names(list)
+    names = []
+    list.each { |item|
+      if item.key?("jobs")
+        filter_job_names(item["jobs"]).map { |child| 
+          names << item["name"] + "/job/" + child
+        }
+      else
+        names << item["name"]
+      end
+    }
+    return names
+  end
+
+
+  def search_in_depth
+    connection.api_get_request("", "tree=jobs[name,jobs[name,jobs[name]]]")["jobs"]
   end
 
 end
