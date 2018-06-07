@@ -22,7 +22,7 @@ class JenkinsSetting < ActiveRecord::Base
 
 
   def get_jobs_list
-    jenkins_client.get_jobs_list
+    jenkins_client.get_available_jobs
   end
 
 

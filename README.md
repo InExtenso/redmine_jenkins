@@ -23,13 +23,13 @@ root# su - redmine
 
 # First git clone Bootstrap Kit
 redmine$ cd REDMINE_ROOT/plugins
-redmine$ git clone https://github.com/jbox-web/redmine_bootstrap_kit.git
+redmine$ git clone https://github.com/InExtenso/redmine_bootstrap_kit.git
 redmine$ cd redmine_bootstrap_kit/
 redmine$ git checkout 0.2.3
 
 # Then Redmine Jenkins plugin
 redmine$ cd REDMINE_ROOT/plugins
-redmine$ git clone https://github.com/jbox-web/redmine_jenkins.git
+redmine$ git clone https://github.com/InExtenso/redmine_jenkins.git
 redmine$ cd redmine_jenkins/
 redmine$ git checkout 1.0.1
 

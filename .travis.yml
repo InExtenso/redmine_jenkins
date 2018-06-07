@@ -38,6 +38,12 @@ env:
     - REDMINE_VERSION=3.0-stable USE_SVN=true DATABASE_ADAPTER=postgresql
     - REDMINE_VERSION=2.6-stable USE_SVN=true DATABASE_ADAPTER=mysql
     - REDMINE_VERSION=2.6-stable USE_SVN=true DATABASE_ADAPTER=postgresql
+    - REDMINE_VERSION=3.4.4 DATABASE_ADAPTER=mysql
+    - REDMINE_VERSION=3.4.4 DATABASE_ADAPTER=postgresql
+    - REDMINE_VERSION=3.3.6 DATABASE_ADAPTER=mysql
+    - REDMINE_VERSION=3.3.6 DATABASE_ADAPTER=postgresql
+    - REDMINE_VERSION=3.2.9 DATABASE_ADAPTER=mysql
+    - REDMINE_VERSION=3.2.9 DATABASE_ADAPTER=postgresql
     - REDMINE_VERSION=3.0.1 DATABASE_ADAPTER=mysql
     - REDMINE_VERSION=3.0.1 DATABASE_ADAPTER=postgresql
     - REDMINE_VERSION=2.6.3 DATABASE_ADAPTER=mysql
@@ -70,7 +76,7 @@ env:
     # - REDMINE_VERSION=2.2.4
 before_install:
   - cd ../..
-  - ./jbox-web/redmine_jenkins/contrib/travis/install_redmine.sh
+  - ./InExtenso/redmine_jenkins/contrib/travis/install_redmine.sh
   - cd redmine
   - echo $(pwd)
   - export BUNDLE_GEMFILE=$PWD/Gemfile
